@@ -1,0 +1,15 @@
+{
+    // This config is used in production by tsconfig-paths
+    // It resolves internal @module paths
+    // The config should reflect tsconfig.json paths
+    // NOTE: Abosolute .ts files should be replaced by .js
+    "compilerOptions": {
+      "baseUrl": "production", // Root folder for pathing
+      "paths": {
+        "@src/*": ["../src/*"],
+        "@globals": ["globals.js"],
+        "@lib/*": ["lib/*"],
+        "@routes/*": ["routes/*"]
+      },
+    }
+  }

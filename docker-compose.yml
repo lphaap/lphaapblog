@@ -1,0 +1,20 @@
+services:
+
+  lphaap-blog-dev:
+      container_name: lphaap-blog-dev # Used in .env.development
+      image: lphaap-blog-dev
+      ports:
+        - 8000:8000 # localhost:8000 (www)
+      env_file:
+        - ./.env.development
+      volumes:
+        - ./:/code/
+        - /code/node_modules/
+        - /code/production/
+      entrypoint: npm run dev
+      healthcheck:
+        test: wget 127.0.0.1:8001/_ping -T 2 -O - 1>/dev/null 2>/dev/null
+        interval: 5s
+        timeout: 10s
+        retries: 5
+        start_period: 5s

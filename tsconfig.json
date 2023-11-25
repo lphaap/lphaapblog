@@ -1,0 +1,49 @@
+{
+    // SOURCE: https://github.com/tsconfig/bases/blob/main/bases/node18-strictest.combined.json
+    "display": "Node 21 + Strictest",
+    "compilerOptions": {
+      "lib": [
+        "es2022"
+      ],
+
+      // NOTE: Remove when typescript is updated to 5.5
+      "ignoreDeprecations": "5.0",
+
+      "module": "commonjs",
+      "target": "es2022",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "moduleResolution": "node",
+      "allowUnusedLabels": false,
+      "allowUnreachableCode": false,
+      "exactOptionalPropertyTypes": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitOverride": true,
+      "noImplicitReturns": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noUncheckedIndexedAccess": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "importsNotUsedAsValues": "error",
+      "checkJs": true,
+      "rootDir": "./",
+      "outDir": "production",
+
+      // NOTE: Overriden in production to "production" folder by jsconfig.json
+      "baseUrl": "src",
+
+      // NOTE: Path changes here should be reflected on jsconfig.json
+      "paths": {
+        "@src/*": ["../src/*"],
+        "@lib/*": ["lib/*"],
+        "@routes/*": ["routes/*"]
+      },
+
+    },
+    "include": ["src"]
+
+    // NOTE: tsconfig.build.json excludes the test folder
+    // "exclude": ["tests/**/*"]
+}
